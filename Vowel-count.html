@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vowel Count</title>
+  <style>
+    .button {
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="button">
+  <h2>VOWEL-COUNT</h2>
+  <textarea id="textInput" rows="9" placeholder="type words here"></textarea>
+  <div>
+    <button id="countVowels">Count Vowels</button>
+    <button id="reset">Reset</button>
+  </div>
+  <div>
+    <h2 id="vowelCount">Vowels Count: 0</h2>
+  </div>
+  <script>
+    function countVowels() {
+      const text = document.getElementById('textInput').value.toLowerCase();
+      const vowels = "aeiou";
+      let vowelCount = 0;
+
+      for (let i = 0; i < text.length; i++) {
+        if (vowels.includes(text[i])) {
+          vowelCount++;
+        }
+      }
+
+      document.getElementById('vowelCount').innerText = `Vowels Count: ${vowelCount}`;
+    }
+
+    function reset() {
+      document.getElementById('textInput').value = '';
+      document.getElementById('vowelCount').innerText = 'Vowels Count: 0';
+    }
+
+    document.getElementById('countVowels').addEventListener('click', countVowels);
+    document.getElementById('reset').addEventListener('click', reset);
+  </script>
+</body>
+</html>
